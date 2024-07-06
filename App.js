@@ -21,6 +21,7 @@ import Stopwatch from './components/Stopwatch';
 import NameChange from './components/NameChange';
 import TableEg from './components/TableEg';
 import ShowMore from './components/ShowMore';
+import Sorting from './components/Sorting';
 function App() {
   return (
     <View className="">
@@ -32,7 +33,8 @@ function App() {
         {/* <Stopwatch/> */}
         {/* <NameChange/> */}
         {/* <TableEg/> */}
-        <ShowMore/>
+        {/* <ShowMore/> */}
+        <Sorting/>
     </View>
   );
 }
