@@ -62,7 +62,6 @@ const Sorting = () => {
       </Pressable>
 
       {visible && (
-        
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 16, marginTop: 32 }}>
           {sortedNumbers.map((number, index) => (
             <View key={index} style={{ borderWidth: 1, padding: 8 }}>
