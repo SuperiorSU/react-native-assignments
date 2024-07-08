@@ -22,6 +22,7 @@ import NameChange from './components/NameChange';
 import TableEg from './components/TableEg';
 import ShowMore from './components/ShowMore';
 import Sorting from './components/Sorting';
+import AccordionEg from './components/AccordionEg';
 function App() {
   return (
     <View className="">
@@ -34,7 +35,8 @@ function App() {
         {/* <NameChange/> */}
         {/* <TableEg/> */}
         {/* <ShowMore/> */}
-        <Sorting/>
+        {/* <Sorting/> */}
+        <AccordionEg title="Accordion 1" body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl "/>
     </View>
   );
 }
