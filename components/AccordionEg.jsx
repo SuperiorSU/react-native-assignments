@@ -1,6 +1,6 @@
-import {View, Text, Pressable} from 'react-native';
+import {View, Text, Pressable, StyleSheet} from 'react-native';
 import React, {useState} from 'react';
-
+import Icon from 'react-native-vector-icons/FontAwesome';
 const AccordionEg = props => {
   const title = props.title;
   const body = props.body;
@@ -12,14 +12,14 @@ const AccordionEg = props => {
     <View className="m-2">
       <Pressable onPress={handleVisible}>
         <View
-          className={`text-lg p-3 accordBody bg-slate-300 rounded-md flex flex-row justify-between ${
-            visible ? `border-2 border-blue-400` : `border-0`
+          className={`text-lg p-3 accordBody bg-slate-200 rounded-md flex flex-row justify-between ${
+            visible ? `border-[1px] border-blue-400` : `border-0`
           }`}>
           <View>
             <Text className="text-black">{title}</Text>
           </View>
           <View>
-            <Text className="text-black font-bold">{visible ? '-' : '+'}</Text>
+            <Text className="text-black font-bold">{visible ?  <Icon name="angle-up" size={16} />: <Icon name="angle-down" size={16}/>}</Text>
           </View>
         </View>
       </Pressable>
@@ -28,8 +28,10 @@ const AccordionEg = props => {
           <Text className="text-black">{body}</Text>
         </View>
       )}
+      
     </View>
   );
 };
 
 export default AccordionEg;
+

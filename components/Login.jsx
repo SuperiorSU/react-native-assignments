@@ -1,9 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
 const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validatePassword = (password) => {
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    return passwordRegex.test(password);
+  };
+
+  const handleLogin = () => {
+    let valid = true;
+    if (!validateEmail(email)) {
+      setEmailError('Invalid email format');
+      valid = false;
+    } else {
+      setEmailError('');
+    }
+
+    if (!validatePassword(password)) {
+      setPasswordError('Password must be at least 8 characters long and contain both letters and numbers');
+      valid = false;
+    } else {
+      setPasswordError('');
+    }
+
+    if (valid) {
+      console.log('Login successful');
+    }
+  };
+
   return (
-    <View style={styles.container} className="shadow-lg  shadow-slate-50 ">
+    <View style={styles.container} className="shadow-lg shadow-slate-50">
       <View style={styles.loginBox}>
         <Text style={styles.title}>Login</Text>
         <View style={styles.form}>
@@ -14,7 +50,10 @@ const Login = () => {
               placeholder="Enter your email" 
               keyboardType="email-address"
               autoCapitalize="none"
+              value={email}
+              onChangeText={setEmail}
             />
+            {emailError ? <Text style={styles.errorText}>{emailError}</Text> : null}
           </View>
           <View style={styles.inputContainer}>
             <Text style={styles.label}>Password</Text>
@@ -23,15 +62,17 @@ const Login = () => {
               placeholder="Enter your password" 
               secureTextEntry={true}
               autoCapitalize="none"
+              value={password}
+              onChangeText={setPassword}
             />
+            {passwordError ? <Text style={styles.errorText}>{passwordError}</Text> : null}
           </View>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={handleLogin}>
             <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
           <View>
             <Text className="text-center py-3 text-blue-600 underline">Forgot Password?</Text>
           </View>
-          <View></View>
         </View>
       </View>
     </View>
@@ -43,7 +84,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius:10,
+    borderRadius: 10,
     backgroundColor: '#f3f4f6',
     marginVertical: 20,
   },
@@ -51,7 +92,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     padding: 20,
     borderRadius: 10,
-    height: 350,
     width: 300,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
@@ -90,6 +130,10 @@ const styles = StyleSheet.create({
   buttonText: {
     color: 'white',
     fontWeight: 'bold',
+  },
+  errorText: {
+    color: 'red',
+    marginTop: 5,
   },
 });
 

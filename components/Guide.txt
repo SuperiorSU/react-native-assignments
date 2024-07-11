@@ -1,0 +1,3 @@
+the best way to sync all the installation of dependencies in react native is to 
+    -> open android studio
+    -> open 

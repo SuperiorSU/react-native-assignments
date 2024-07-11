@@ -3,13 +3,12 @@ import {
   SafeAreaView,
   ScrollView,
   StatusBar,
-  StyleSheet,
   Image,
   Text,
   useColorScheme,
   View,
 } from 'react-native';
-import Header from './components/Header';
+// import Header from './components/Header';
 import Points from './components/Points';
 import Login from './components/Login';
 import Calculator from './components/Calculator';
@@ -23,9 +22,13 @@ import TableEg from './components/TableEg';
 import ShowMore from './components/ShowMore';
 import Sorting from './components/Sorting';
 import AccordionEg from './components/AccordionEg';
+// import Search from './components/SearchEg';
+import SearchEg from './components/SearchEg';
+import SideBarEg from './components/SideBarEg';
 function App() {
   return (
     <View className="">
+      {/* <ScrollView> */}
         {/* <Calculator/> */}
         {/* <OTP/> */}
         {/* <RegisterForm/> */}
@@ -36,18 +39,13 @@ function App() {
         {/* <TableEg/> */}
         {/* <ShowMore/> */}
         {/* <Sorting/> */}
-        <AccordionEg title="Accordion 1" body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl "/>
+        {/* <AccordionEg title="Accordion 1" body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl "/> */}
+        {/* <SearchEg/> */}
+        {/* <Login/> */}
+        <SideBarEg/>
+      {/* </ScrollView> */}
     </View>
   );
 }
-const styles = StyleSheet.create({
-  abs:{
-    position:'absolute',
-    top:120,
-    left:0,
-    right:0,
-    justifyContent:'center',
-    alignItems:'center',
-  }
-})
+
 export default App;
