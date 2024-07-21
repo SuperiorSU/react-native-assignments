@@ -1,3 +1,2 @@
 the best way to sync all the installation of dependencies in react native is to 
-    -> open android studio
-    -> open 
+    -> open the project in android studio while downloading the dependency. Only open the android folder of the native project in the studio.
